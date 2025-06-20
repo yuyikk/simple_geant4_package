@@ -1,5 +1,26 @@
 # About
 A Geant4 simulation package that simulates the detector (a time-of-flight detector) responses of electron beam on liquid hydrogen target.
+
+## Breif introduction of the code structure
+All the initializations are done in the `doSimu.cc`
+
+- `DetConstruction.cc/hh`
+Reconstruction of detectors
+
+- `PrimaryGenerator.cc/hh`
+Set particles, for example Beam particles (Energy, momentum etc.)
+Updates of particles for next event can be only performed here
+
+- `EventAction.cc/hh`
+Hits information can be processed/stored here 
+
+- `TOFSD.cc/hh`
+This is the main codes that process the response of the detector (a time-of-flight detector).
+We can get all the hit information here and calculate the probability of accepting this event. This can be performed in the function `void TOFSD::EndOfEvent(G4HCofThisEvent *HCE)`. 
+It can also be done in the `void EventAction::EndOfEventAction(const G4Event *event)` from `EventAction.cc/hh`
+
+If McMule need to control the event loop, we need to find a way to pass information at `EndOfEvent` functions and go back to `PrimaryGenerator.cc/hh` after we generated the next event.
+
 ## Compilation
 [ROOT](https://root.cern.ch) and [Geant4](https://geant4.web.cern.ch) should be installed firstly.
 One simple way to install them is to use [anaconda](https://www.anaconda.com/installation-success?source=installer)
@@ -44,22 +65,3 @@ export OUTDIR="./output/0915-0916.Virtual"
 export INPUT="./input/0915-0916.Virtual.root" 
 ```
 
-## Breif introduction of the code structure
-All the initializations are done in the `doSimu.cc`
-
-- `DetConstruction.cc/hh`
-Reconstruction of detectors
-
-- `PrimaryGenerator.cc/hh`
-Set particles, for example Beam particles (Energy, momentum etc.)
-Updates of particles for next event can be only performed here
-
-- `EventAction.cc/hh`
-Hits information can be processed/stored here 
-
-- `TOFSD.cc/hh`
-This is the main codes that process the response of the detector (a time-of-flight detector).
-We can get all the hit information here and calculate the probability of accepting this event. This can be performed in the function `void TOFSD::EndOfEvent(G4HCofThisEvent *HCE)`. 
-It can also be done in the `void EventAction::EndOfEventAction(const G4Event *event)` from `EventAction.cc/hh`
-
-If McMule need to control the event loop, we need to find a way to pass information at `EndOfEvent` functions and go back to `PrimaryGenerator.cc/hh` after we generated the next event.
