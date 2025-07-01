@@ -47,6 +47,19 @@ You will get a executable file `doSimu` and a shared library in the current dire
     
     You will get a root file `runnumber.BOT.root` in the current directory, in which a tree is stored and also a histogram storing number of generated enents
 
+## Running the codes with external macro
+Please modify the following lines in the CMakeLists.txt:
+```cmake
+set(G4_Simu_Pack_Path "/Users/Yi/Documents/vscode/PRad/EvtGen_Dev/external_calling/simple_geant4_package")
+set(G4_Simu_Lib_Path "${G4_Simu_Pack_Path}/build")
+```
+1. `cd external_macros`
+2. `mkdir -p <folder>`
+3. `cd <folder>`
+4. `cmake ..` and `make`
+5. `./run_geant4 number_of_events output_root_file_name`
+
+
 
 ## Read tree
 Some root macros of reading simulation trees can be found in `readTree`.
