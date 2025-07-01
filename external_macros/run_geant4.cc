@@ -49,9 +49,6 @@ int main(int argc, char **argv)
     runManager->SetUserInitialization(new FTFP_BERT());
     runManager->SetUserInitialization(new ActionInit());
     runManager->Initialize();
-
-    TRandom3 rnd;
-    rnd.SetSeed(randseed);
     if (nEvent < 1000)
     {
         runManager->SetPrintProgress(0);
@@ -72,20 +69,8 @@ int main(int argc, char **argv)
     // Loop over events manually
     for (int i = 0; i < nEvent; ++i)
     {
-        // long seed = static_cast<long>(std::time(nullptr)) + i * 783782;
-        // CLHEP::HepRandom::setTheSeed(seed);
-
-        // std::random_device rd;
-        // G4long seed = static_cast<G4long>(rd()) + i * 1234567;
-        // G4Random::setTheSeed(rnd.Uniform(-1e9, 1e9));
-        // for (int j = 0; j < 100; ++j)
-        // {
-        //     CLHEP::HepRandom::getTheEngine()->flat();
-        // }
-
-        // uint64_t now_ns = std::chrono::high_resolution_clock::now().time_since_epoch().count();
-        // seed = now_ns / 1000 + i * 345672641628;
-        // CLHEP::HepRandom::setTheSeed(seed);
+        long seed = static_cast<long>(std::time(nullptr)) + i * 783782;
+        CLHEP::HepRandom::setTheSeed(seed);
         // G4cout << "seed: " << seed << G4endl;
         runManager->BeamOn(1);
 
@@ -107,7 +92,7 @@ int main(int argc, char **argv)
         // Setup the next event.
         // McMule exposes 4-momentum variables of particles
         // Not limited to 1 particle. Here is just an example
-        // primaryGen->SetPxPyPzE(0, 0, 1000, 1000);
+        primaryGen->SetPxPyPzE(0, 0, 1000, 1000);
     }
     // Finalization
 
