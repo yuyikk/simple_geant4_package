@@ -4,8 +4,9 @@ project(run_geant4_external)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(G4_Simu_Pack_Path "/Users/Yi/Documents/vscode/PRad/EvtGen_Dev/external_calling/simple_geant4_package")
-set(G4_Simu_Include_Path "${G4_Simu_Pack_Path}/include")
 set(G4_Simu_Lib_Path "${G4_Simu_Pack_Path}/build")
+set(G4_Simu_Include_Path "${G4_Simu_Pack_Path}/include")
+
 
 # Find Geant4
 find_package(Geant4 REQUIRED)
