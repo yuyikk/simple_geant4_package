@@ -9,6 +9,7 @@
 #include "G4OpticalPhysics.hh"
 #include <iostream>
 #include "DetConstruction.hh"
+#include "PrimaryGenerator.hh"
 // #include "MyPhysicsList.hh"
 #include "ActionInit.hh"
 #include "RootTree.hh"
@@ -16,11 +17,11 @@
 #include "TString.h"
 #include <time.h>
 #include "TH1D.h"
-// #include "GlobalVars.hh"
+#include "GlobalVars.hh"
 
 using namespace std;
 const bool GUIStatus = false;
-RootTree *gRootTree = 0;
+// RootTree *gRootTree = 0;
 int main(int argc, char *argv[])
 {
     const G4int nEvent_default = 3000;
@@ -49,6 +50,8 @@ int main(int argc, char *argv[])
     runManager->SetUserInitialization(physicslist);
     runManager->SetUserInitialization(new ActionInit());
     runManager->Initialize();
+    auto primaryGen = (PrimaryGenerator *)runManager->GetUserPrimaryGeneratorAction();
+    primaryGen->SetPxPyPzE(0, 0, 1000, 1000);
     G4UIExecutive *ui = 0;
     if (GUIStatus == true)
     {

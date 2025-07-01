@@ -23,7 +23,9 @@ using std::vector;
 EventAction::EventAction() : G4UserEventAction(), fEventID(0)
 {
     // G4RunManager::GetRunManager()->SetPrintProgress(100);
+    G4cout << "EventAction: gRootTree" << G4endl;
     RegisterTree(gRootTree->GetTree());
+    G4cout << "EventAction: gRootTree Done" << G4endl;
 }
 void EventAction::BeginOfEventAction(const G4Event *event)
 {
@@ -80,6 +82,10 @@ void EventAction::EndOfEventAction(const G4Event *event)
     {
         return;
     }
+    // if (gRootTree)
+    // {
+    //     G4cout << "Invalid gRootTree!" << G4endl;
+    // }
     gRootTree->FillTree();
 }
 void EventAction::RegisterTree(TTree *tree)

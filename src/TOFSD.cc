@@ -51,7 +51,9 @@ void TOFSD::Initialize(G4HCofThisEvent *HCE)
   if (!fRegistered)
   {
     // G4cout << "Haha, Tree pointer: " << gRootTree->GetTree() << "\t" << gRootTree->GetTree()->GetName() << G4endl;
+    // G4cout << "gRootTree->GetTree()" << G4endl;
     RegisterTree(gRootTree->GetTree());
+    // G4cout << "Successed!!" << G4endl;
     fRegistered = true;
   }
   fHitsCollection = new StandardHitsCollection(SensitiveDetectorName, collectionName[0]);
@@ -216,6 +218,7 @@ void TOFSD::EndOfEvent(G4HCofThisEvent *HCE)
     fTotalEdep += hit->GetEdep();
     fTotalTrackLength += hit->GetTrackLength();
   }
+  // std::cout << "Edep: " << fTotalEdep << std::endl;
 }
 void TOFSD::RegisterTree(TTree *tree)
 {

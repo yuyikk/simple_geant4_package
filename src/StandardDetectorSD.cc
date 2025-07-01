@@ -42,7 +42,9 @@ void StandardDetectorSD::Initialize(G4HCofThisEvent *HCE)
 {
     if (!fRegistered)
     {
+        // G4cout << "gRootTree->GetTree()" << G4endl;
         RegisterTree(gRootTree->GetTree());
+        // G4cout << "Successed!!" << G4endl;
         fRegistered = true;
     }
     fHitsCollection = new StandardHitsCollection(SensitiveDetectorName, collectionName[0]);

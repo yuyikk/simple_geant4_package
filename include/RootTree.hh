@@ -24,10 +24,12 @@ public:
 
     inline TTree *GetTree() const;
     void FillTree(); // fill tree
+    // void SetFileName(char *name) { fName = name; }
 
 private:
     TFile *fFile;
     TTree *fTree;
+    // char *fName;
 };
 
 inline TTree *RootTree::GetTree() const

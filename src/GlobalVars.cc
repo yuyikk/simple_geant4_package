@@ -8,13 +8,9 @@
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
-#ifndef GlobalVars_h
-#define GlobalVars_h 1
+#include "GlobalVars.hh"
 
 #include "RootTree.hh"
 
-extern RootTree *gRootTree;
+RootTree *gRootTree = nullptr;
 
-//....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
-
-#endif

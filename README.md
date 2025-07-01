@@ -37,7 +37,7 @@ conda activate <my-environment>
 4. `cmake ..`
 5. `make`
 
-You will get a executable file `doSimu` in the current directory.
+You will get a executable file `doSimu` and a shared library in the current directory.
 
 ## Running the codes
 1. `cd build`
@@ -46,6 +46,7 @@ You will get a executable file `doSimu` in the current directory.
     The `doSimu` accepts two arguements, the first is the number of events and the second is the runnumber that you can set freely.
     
     You will get a root file `runnumber.BOT.root` in the current directory, in which a tree is stored and also a histogram storing number of generated enents
+
 
 ## Read tree
 Some root macros of reading simulation trees can be found in `readTree`.

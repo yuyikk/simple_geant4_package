@@ -25,6 +25,8 @@ public:
   virtual void Initialize(G4HCofThisEvent *) override;
   virtual G4bool ProcessHits(G4Step *aStep, G4TouchableHistory *ROhist) override;
   virtual void EndOfEvent(G4HCofThisEvent *) override;
+
+  float GetTotalEdep() { return fTotalEdep; };
   // inline void SetAttenuationLG(const G4double &val);
   // inline void SetReflectanceLG(const G4double &val);
 protected:
