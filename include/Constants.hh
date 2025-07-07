@@ -52,7 +52,7 @@ namespace MyTOF
 {
     // relative to the center of MyAarmHad
 
-    constexpr G4double kLengthToTarget = 15 * m;
+    constexpr G4double kLengthToTarget = 6 * m;
     constexpr G4int kNofLayers = 7;
     constexpr G4int kNofRows = 140;
     constexpr G4int kNofColumns = 1;
@@ -95,7 +95,7 @@ namespace MyArmHad // the arm for hadron detection
     constexpr G4double kPosX = 0;
     constexpr G4double kPosY = 0;
     constexpr G4double kPosZ = 0;
-    constexpr G4double kAngle = -45 * degree;
+    constexpr G4double kAngle = -10 * degree;
 }
 namespace MyMagnet
 {

@@ -64,7 +64,7 @@ int main(int argc, char **argv)
     // call possible functions here
 
     auto primaryGen = (PrimaryGenerator *)runManager->GetUserPrimaryGeneratorAction();
-    primaryGen->SetPxPyPzE(0, 0, 1000, 1000);
+    primaryGen->SetPxPyPzE(0, 0, 1000, 1000); // unit: MeV
     // runManager->BeamOn(100000);
     // Loop over events manually
     for (int i = 0; i < nEvent; ++i)

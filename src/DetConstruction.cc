@@ -316,7 +316,7 @@ void DetConstruction::ConstructSDandField()
     G4MagIntegratorStepper *stepper = new G4ClassicalRK4(equationOfMotion); // Runge-Kutta stepper
     G4ChordFinder *chordFinder = new G4ChordFinder(fBField, 1e-2 * mm, stepper);
     fFieldMgr->SetChordFinder(chordFinder);
-    logicBField->SetFieldManager(fFieldMgr, true);
+    // logicBField->SetFieldManager(fFieldMgr, true);
     // MySensitiveDetector *sensDet = new MySensitiveDetector("SensitiveDetector");
     // logicDetector->SetSensitiveDetector(sensDet);
 }
